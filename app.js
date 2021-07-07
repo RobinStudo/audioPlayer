@@ -19,10 +19,6 @@ button.addEventListener('click', function(){
 });
 
 const progress = document.querySelector('.player-progress progress');
-// setInterval(function(){
-//     const percent = player.currentTime * 100 / player.duration;
-//     progress.setAttribute('value', Math.round(percent));
-// }, 1000);
 
 player.addEventListener('timeupdate', function(){
     const percent = player.currentTime * 100 / player.duration;
