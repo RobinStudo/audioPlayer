@@ -8,15 +8,15 @@ player.addEventListener('loadedmetadata', function(){
     textTotalTime.textContent = convertSecondsToTime(player.duration);
 });
 
-button.addEventListener('click', function(){
-    if(player.paused === true){
-        player.play();
-        icon.classList.replace('fa-play', 'fa-pause');
-    }else{
-        player.pause();
-        icon.classList.replace('fa-pause', 'fa-play');
-    }
-});
+// button.addEventListener('click', function(){
+//     if(player.paused === true){
+//         player.play();
+//         icon.classList.replace('fa-play', 'fa-pause');
+//     }else{
+//         player.pause();
+//         icon.classList.replace('fa-pause', 'fa-play');
+//     }
+// });
 
 // const progress = document.querySelector('.player-progress progress');
 
