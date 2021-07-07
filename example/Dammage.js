@@ -1,0 +1,4 @@
+interface Dammage{
+    setDammage();
+    repear();
+}

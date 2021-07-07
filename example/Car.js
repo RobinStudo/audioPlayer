@@ -1,20 +1,5 @@
-class Car{
-    engine = false;
-    speed = 0;
+class Car extends Vehicle{
     lock = false;
-    color;
-
-    start(){
-        this.engine = true;
-    }
-
-    stop(){
-        this.engine = false;
-    }
-
-    accelerate(){
-        this.speed = this.speed * 2;
-    }
 
     lock(){
         this.lock = true;
