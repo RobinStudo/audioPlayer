@@ -13,8 +13,20 @@ class Player{
         this.elements.icon = this.elements.button.querySelector('i');
     
         this.elements.audio.addEventListener('loadedmetadata', function(){
+            
+        });
+
+        this.elements.audio.addEventListener('timeupdate', function(){
 
         });
+
+        this.elements.button.addEventListener('click', function(){
+
+        });
+
+        this.elements.progress.addEventListener('click', function(){
+            
+        })
     }
 
     play(){

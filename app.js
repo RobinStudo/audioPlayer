@@ -1,8 +1,8 @@
-const button = document.querySelector('.player-play');
-const player = document.querySelector('.player-source');
-const icon = button.querySelector('i');
-const textCurrentTime = document.querySelector('.player-time__current');
-const textTotalTime = document.querySelector('.player-time__total');
+// const button = document.querySelector('.player-play');
+// const player = document.querySelector('.player-source');
+// const icon = button.querySelector('i');
+// const textCurrentTime = document.querySelector('.player-time__current');
+// const textTotalTime = document.querySelector('.player-time__total');
 
 player.addEventListener('loadedmetadata', function(){
     textTotalTime.textContent = convertSecondsToTime(player.duration);
@@ -18,7 +18,7 @@ button.addEventListener('click', function(){
     }
 });
 
-const progress = document.querySelector('.player-progress progress');
+// const progress = document.querySelector('.player-progress progress');
 
 player.addEventListener('timeupdate', function(){
     const percent = player.currentTime * 100 / player.duration;
