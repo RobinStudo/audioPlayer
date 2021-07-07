@@ -1,6 +1,9 @@
+import TimeUtil from "./TimeUtil.js";
+
 class Player{
     constructor(id){
         this.container = document.getElementById(id);
+        this.timeUtil = new TimeUtil();
         this.buildElements();
         this.bindEvents();
     }
@@ -18,13 +21,12 @@ class Player{
     }
 
     bindEvents(){
-        this.elements.audio.addEventListener('loadedmetadata', function(){
-            
+        this.elements.audio.addEventListener('loadedmetadata', () => {
+            const time = this.timeUtil.convertSecondsToTime(this.elements.audio.duration);
+            this.elements.textTotalTime.textContent = time;
         });
 
-        this.elements.audio.addEventListener('timeupdate', function(){
-
-        });
+        this.elements.audio.addEventListener('timeupdate', () => this.progress());
 
         this.elements.button.addEventListener('click', () => {
             if(this.elements.audio.paused === true){
@@ -34,8 +36,9 @@ class Player{
             }
         });
 
-        this.elements.progress.addEventListener('click', function(){
-
+        this.elements.progress.addEventListener('click', event => {
+            const progression = event.offsetX * 100 / this.elements.progress.offsetWidth;
+            this.goTo(progression);
         });
     }
 
@@ -45,7 +48,16 @@ class Player{
     }
 
     progress(){
+        const percent = this.elements.audio.currentTime * 100 / this.elements.audio.duration;
+        this.elements.progress.setAttribute('value', Math.round(percent));
+    
+        const time = this.timeUtil.convertSecondsToTime(this.elements.audio.currentTime);
+        this.elements.textCurrentTime.textContent = time;
+    }
 
+    goTo(percent){
+        const time = percent * this.elements.audio.duration / 100;
+        this.elements.audio.currentTime = Math.round(time);
     }
 
     pause(){
@@ -54,6 +66,5 @@ class Player{
     }
 }
 
-const player = new Player('player');
-const player2 = new Player('player2');
+export default Player;
 
